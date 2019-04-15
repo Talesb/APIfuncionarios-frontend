@@ -1,0 +1,32 @@
+<app-page-header page-title="Funcionarios" button-class='btn-success' button-text='+ Novo Funcionario'
+  button-link='new'>
+</app-page-header>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="bg-primary text-light">
+      <th>Funcionarios</th>
+      <th>Idade</th>
+      <th>Cargo</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let funcionario of resources'>
+      <td>
+        <strong>{{funcionario.nome}}</strong><br>
+      </td>
+      <td>
+        {{funcionario.idade}}<br>
+      </td>
+      <td>
+        {{funcionario.cargo}}<br>
+      </td>
+
+      <td class="align-middle">
+        <a [routerLink]="[funcionario.id,'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
+        <button (click)="deleteResource(funcionario)" class="btn btn-outline-danger btn-sm ">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
